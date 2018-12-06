@@ -1,0 +1,87 @@
+﻿@using Bordfodbold.Models;
+@using Bordfodbold.Controllers;
+
+
+<div class="jumbotron">
+    <h4>Kamp</h4>
+
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h3>Team Rød <input type="number" style="width:35px;" value="rødmål" /></h3> 
+        <select class="form-control" id="Spillernavn" name="SpillerNavn">
+            <option>Vælg spiller 1</option>
+            <option>Male</option>
+            <option>Female</option>
+        </select>
+        <br />
+        <select class="form-control" id="Spillernavn" name="SpillerNavn">
+            <option>Vælg spiller 2</option>
+            <option>Male</option>
+            <option>Female</option>
+        </select>
+
+
+
+        @*@model Spiller
+        @using (Html.BeginForm())
+        {
+            <label>Vendor name </label>
+            <label>Bank</label>
+            @Html.DropDownListFor(s => s.spiller_id, Model.Navn, "Select one")
+            <input type="submit" />
+        }*@
+
+
+
+
+
+    </div>
+
+    <div class="col-md-4">
+        <br />
+        <br />
+
+        <div style="margin-left: auto; margin-right: auto; text-align: center;"><h1> VS </h1>
+        </div>
+
+    
+
+
+    </div>
+
+
+
+            <div class="col-md-4" style="margin-left: auto; margin-right: auto; text-align: right;">
+                <h3> <input type="number" style="width:35px;" value="blåmål" /> Team Blå</h3>
+                <select class="form-control" id="Spillernavn" name="SpillerNavn">
+                    <option>Vælg spiller 1</option>
+                    <option>Male</option>
+                    <option>Female</option>
+                </select>
+                <br />
+                <select class="form-control" id="Spillernavn" name="SpillerNavn" >
+                    <option>Vælg spiller 2</option>
+                    <option>Male</option>
+                    <option>Female</option>
+                </select>
+
+
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <input type="submit" value="Gem" />
+
+            </div>
+        </div>

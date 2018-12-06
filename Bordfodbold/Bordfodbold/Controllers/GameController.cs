@@ -14,6 +14,7 @@ namespace Bordfodbold.Controllers
         {
             return View();
         }
+        /*
         List<Spiller> spiller = new List<Spiller> {
             new Spiller {spiller_navn = "john"},
             new Spiller {spiller_navn = "patte"},
@@ -21,5 +22,19 @@ namespace Bordfodbold.Controllers
             new Spiller {spiller_navn = "daniel"}
         
     };
+    */
+
+        public ActionResult Create(Spiller Model)
+        {
+            var spiller = new Spiller();
+            spiller.Navn = new List<SelectListItem> {
+     new SelectListItem { Value="1", Text = "John" },
+     new SelectListItem { Value="2", Text = "patte" },
+     new SelectListItem { Value="3", Text = "glenn" },
+     new SelectListItem { Value="4", Text = "daniel" }
+  };
+            return View("Index", spiller);
+        }
+
     }
 }
