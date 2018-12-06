@@ -33,6 +33,13 @@ namespace Bordfodbold.Infrastructure {
 
       //      kernel.Bind<ISpillerRepository>().ToConstant(mock.Object);
             kernel.Bind<ISpillerRepository>().To<EFSpillerRepository>();
+            //kernel.Bind<IKampRepository>().To<EFKamprepository>();
+            //rigtig forbindelse
+
+            //mock forbindelse
+            Mock<IKampRepository> mock = new Mock<IKampRepository>();
+            mock.Setup(me => me.kampe).Returns(new List<Kamp>
+               { new Kamp { Kamp_ID = 1, Hold1_ID = 1, Hold2_ID = 2, Tid = 5 }});
     }
   }
 }

@@ -10,6 +10,7 @@ using System.Web.Mvc;
 namespace Bordfodbold.Controllers {
   public class HomeController : Controller {
 
+
         private ISpillerRepository spilrepository;
 
         public HomeController(ISpillerRepository spillerRepository)
@@ -76,10 +77,12 @@ namespace Bordfodbold.Controllers {
     //  return View("Index");
     //}
 
-    public ActionResult Contact() {
-      ViewBag.Message = "Your contact page.";
+    [HttpPost]    //der sendes info fra system til serverdatabase 
+    public ActionResult GemKamp() {
+                   
 
-      return View();
-    }
+
+     return View("Index",new Kamp());
+        }
   }
 }
