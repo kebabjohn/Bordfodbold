@@ -7,13 +7,13 @@ namespace Bordfodbold.Models
 {
     public class Spiller
     {
-        public int spiller_id { get; set; }
+        public int SpillerID { get; set; }
 
-        public string spiller_navn { get; set; }
+        public string Spiller_Name { get; set; }
 
-        public int spiller_mål { get; set; }
+        public int Spiller_Maal { get; set; }
 
-        public int spillede_kampe { get; set; }
+        public int Spiller_Kampe { get; set; }
 
 
     }
