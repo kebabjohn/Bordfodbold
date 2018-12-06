@@ -10,6 +10,7 @@ namespace Bordfodbold.Controllers
 {
     public class GameController : Controller
     {
+
     private ISpillerRepository repository;
 
     public GameController(ISpillerRepository spillerRepository) {
@@ -48,7 +49,11 @@ namespace Bordfodbold.Controllers
 
       return View(searchedSpillerList);
 
+
+
+
     }
+
   }
     
 }
