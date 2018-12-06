@@ -1,6 +1,7 @@
 ﻿using Bordfodbold.Abstract;
 using Bordfodbold.Concrete;
 using Bordfodbold.Models;
+using Moq;
 using Ninject;
 using System;
 using System.Collections.Generic;
@@ -23,6 +24,17 @@ namespace Bordfodbold.Infrastructure {
     }
     private void AddBindings() {
       kernel.Bind<ISpillerRepository>().To<EFSpillerRepository>();
-    }
+
+     /*       Mock<ISpillerRepository> mock = new Mock<ISpillerRepository>();
+
+            mock.Setup(m => m.Spillere).Returns(new List<Spiller>
+            {
+          new Spiller { SpillerID = 0, Spiller_Name = "Jonas", Spiller_Maal = 1, Spiller_Kampe=2}
+
+      });
+
+            kernel.Bind<ISpillerRepository>().ToConstant(mock.Object);
+            */
+        }
   }
 }

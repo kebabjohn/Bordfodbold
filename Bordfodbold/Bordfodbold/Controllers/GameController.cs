@@ -16,38 +16,39 @@ namespace Bordfodbold.Controllers
       repository = spillerRepository;
     }
     // GET: Game
-    public ActionResult GameScreen(Spiller spiller)
+    public ActionResult GameScreen()
         {
-      List<Spiller> searchedSpillerList = new List<Spiller>();
+            /* List<Spiller> searchedSpillerList = new List<Spiller>();
 
-      if (spiller.Spiller_Name != null && spiller.Spiller_Maal != 0 && spiller.Spiller_Kampe != 0) {
-        foreach (Spiller s in repository.Spillere) {
-          if (spiller.Spiller_Name == s.Spiller_Name && spiller.Spiller_Maal == s.Spiller_Maal && spiller.Spiller_Kampe == s.Spiller_Kampe) {
-            searchedSpillerList.Add(s);
-          }
-        }
-      } else if (spiller.Spiller_Name != null) {
-        foreach (Spiller s in repository.Spillere) {
-          if (spiller.Spiller_Name == s.Spiller_Name) {
-            searchedSpillerList.Add(s);
-          }
-        }
-      } else if (spiller.Spiller_Maal != 0) {
-        foreach (Spiller s in repository.Spillere) {
-          if (spiller.Spiller_Maal == s.Spiller_Maal) {
-            searchedSpillerList.Add(s);
-          }
-        }
-      } else if (spiller.Spiller_Kampe != 0) {
-        foreach (Spiller s in repository.Spillere) {
-          if (spiller.Spiller_Kampe == s.Spiller_Kampe) {
-            searchedSpillerList.Add(s);
-          }
-        }
-      }
+             if (spiller.Spiller_Name != null && spiller.Spiller_Maal != 0 && spiller.Spiller_Kampe != 0) {
+               foreach (Spiller s in repository.Spillere) {
+                 if (spiller.Spiller_Name == s.Spiller_Name && spiller.Spiller_Maal == s.Spiller_Maal && spiller.Spiller_Kampe == s.Spiller_Kampe) {
+                   searchedSpillerList.Add(s);
+                 }
+               }
+             } else if (spiller.Spiller_Name != null) {
+               foreach (Spiller s in repository.Spillere) {
+                 if (spiller.Spiller_Name == s.Spiller_Name) {
+                   searchedSpillerList.Add(s);
+                 }
+               }
+             } else if (spiller.Spiller_Maal != 0) {
+               foreach (Spiller s in repository.Spillere) {
+                 if (spiller.Spiller_Maal == s.Spiller_Maal) {
+                   searchedSpillerList.Add(s);
+                 }
+               }
+             } else if (spiller.Spiller_Kampe != 0) {
+               foreach (Spiller s in repository.Spillere) {
+                 if (spiller.Spiller_Kampe == s.Spiller_Kampe) {
+                   searchedSpillerList.Add(s);
+                 }
+               }
+             }
 
-      return View(searchedSpillerList);
-
+             return View(searchedSpillerList);
+             */
+            return View(repository.Spillere);
     }
   }
     
