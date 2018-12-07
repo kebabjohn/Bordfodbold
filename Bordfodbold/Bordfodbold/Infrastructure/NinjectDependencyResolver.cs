@@ -37,9 +37,7 @@ namespace Bordfodbold.Infrastructure {
             //rigtig forbindelse
 
             //mock forbindelse
-            Mock<IKampRepository> mock = new Mock<IKampRepository>();
-            mock.Setup(me => me.kampe).Returns(new List<Kamp>
-               { new Kamp { Kamp_ID = 0, Hold1_ID = 1, Hold2_ID = 2, Tid = 5 }});
+
     }
   }
 }
