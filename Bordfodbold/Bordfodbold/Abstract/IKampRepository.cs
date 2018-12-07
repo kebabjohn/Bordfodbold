@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Bordfodbold.Models;
 
 namespace Bordfodbold.Abstract {
-    interface IKampRepository {
+  public  interface IKampRepository {
         IEnumerable<Kamp> kampe { get; }
 
     }
