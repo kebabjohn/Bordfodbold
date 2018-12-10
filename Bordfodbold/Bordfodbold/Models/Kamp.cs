@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
 namespace Bordfodbold.Models {
     public class Kamp {
-        [Key]
+
         public int Kamp_ID { get; set; }
         public int Spiller1_ID { get; set; }
         public int Spiller2_ID { get; set; }
