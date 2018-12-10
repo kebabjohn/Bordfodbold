@@ -35,11 +35,11 @@ namespace Bordfodbold.Infrastructure {
             kernel.Bind<ISpillerRepository>().To<EFSpillerRepository>();
             //kernel.Bind<IKampRepository>().To<EFKamprepository>();
             //rigtig forbindelse
-
+            DateTime date = new DateTime();
             //mock forbindelse
             Mock<IKampRepository> mock = new Mock<IKampRepository>();
             mock.Setup(me => me.kampe).Returns(new List<Kamp>
-               { new Kamp { Kamp_ID = 0, Hold1_ID = 1, Hold2_ID = 2, Tid = 5 }});
+               { new Kamp {Kamp_ID=0, Spiller1_ID=1, Spiller2_ID=2, Spiller3_ID=3, Spiller4_ID=4, Dato=date, Tid=5 }});
     }
   }
 }

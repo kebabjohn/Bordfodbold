@@ -78,11 +78,14 @@ namespace Bordfodbold.Controllers {
     //}
 
     [HttpPost]    //der sendes info fra system til serverdatabase 
-    public ActionResult GemKamp() {
-                   
+    public ActionResult GemKamp( int rødmål, int blåmål) {
+            int SpillerID = 0;
+            Kamp match = new Kamp();
+            match.rødmål = rødmål;
+            match.blåmål = blåmål;
 
 
-     return View("Index",new Kamp());
+            return View("Index",match);
         }
   }
 }
