@@ -4,13 +4,13 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace Bordfodbold.Controllers
-{
-    public class AdminController : Controller
-    {
+namespace Bordfodbold.Controllers{
+
+    public class AdminController : Controller{
         // GET: Admin
-        public ActionResult Index()
-        {
+        public ActionResult Index(){
+
+
             return View();
         }
     }
