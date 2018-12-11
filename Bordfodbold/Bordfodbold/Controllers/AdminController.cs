@@ -8,7 +8,7 @@ using Bordfodbold.Models;
 
 
 namespace Bordfodbold.Controllers{
-
+    [Authorize]
     public class AdminController : Controller{
 
 

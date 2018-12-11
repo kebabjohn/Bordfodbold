@@ -176,6 +176,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abstract\IAuhtProvider.cs" />
     <Compile Include="Abstract\IKampRepository.cs" />
     <Compile Include="Abstract\ISpillerRepository.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
@@ -185,6 +186,8 @@
     <Compile Include="Concrete\EFDbContext.cs" />
     <Compile Include="Concrete\EFKamprepository.cs" />
     <Compile Include="Concrete\EFSpillerRepository.cs" />
+    <Compile Include="Concrete\FormAuthProvider.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\GameController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -193,6 +196,7 @@
     </Compile>
     <Compile Include="Infrastructure\NinjectDependencyResolver.cs" />
     <Compile Include="Models\Kamp.cs" />
+    <Compile Include="Models\LoginViewModel.cs" />
     <Compile Include="Models\Spiller.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -238,6 +242,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Dropdownsite.cshtml" />
     <Content Include="Views\Admin\Admin.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
