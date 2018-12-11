@@ -20,7 +20,7 @@ namespace Bordfodbold.Controllers {
             if (ModelState.IsValid) {
                 if (authProvider.Authenticate(model.UserName,
                 model.PassWord)) {
-                    return Redirect(returnUrl ?? Url.Action("Index",
+                    return Redirect(returnUrl ?? Url.Action("Admin",
                     "Admin"));
                 }
                 else {

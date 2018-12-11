@@ -42,6 +42,11 @@ namespace Bordfodbold.Infrastructure {
                { new Kamp {Kamp_ID=0, Spiller1_ID=1, Spiller2_ID=2, Spiller3_ID=3, Spiller4_ID=4, Dato=date, Tid=5 }});
             // authentication provider binding
             kernel.Bind<IAuhtProvider>().To<FormAuthProvider>();
+
+            //mock IAuhtor
+            Mock<IAuhtProvider> muck = new Mock<IAuhtProvider>();
+          //  kernel.Bind<IAuhtProvider>().ToConstant(muck.Object);
+            //setup laves i test klasse
     }
   }
 }

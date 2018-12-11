@@ -1,7 +1,8 @@
-﻿@{
-    @ViewBag.Title = "Admin Login";
-    @model Bordfodbold.Models.LoginViewModel
-    Layout = "~/Views/Shared/_Layout.cshtml";
+﻿@model Bordfodbold.Models.LoginViewModel
+@{
+    ViewBag.Title = "Admin Login";
+
+Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <!DOCTYPE html>
@@ -14,19 +15,17 @@
         </div>
         <div class="panel-body">
             <p class="lead">
-                venligst log ind for at kunne få adgang til administration: 
+                venligst log ind for at kunne få adgang til administration:
             </p>
             @using (Html.BeginForm()) {
                 @Html.ValidationSummary()
                 <div class="form-group">
                     <label>User Name:</label>
-                    @Html.TextBoxFor(m => m.UserName, new { @class = "formcontrol"
-                    })
+                    @Html.TextBoxFor(m => m.UserName, new { @class = "formcontrol" })
                 </div>
                 <div class="form-group">
                     <label>Password:</label>
-                    @Html.PasswordFor(m => m.PassWord, new { @class = "formcontrol"
-                    })
+                    @Html.PasswordFor(m => m.PassWord, new { @class = "formcontrol" })
                 </div>
                 <input type="submit" value="Log in" class="btn btn-primary" />
             }
