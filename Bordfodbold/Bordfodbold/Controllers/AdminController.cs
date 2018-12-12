@@ -10,7 +10,7 @@ using Bordfodbold.Models;
 namespace Bordfodbold.Controllers{
     [Authorize]
     public class AdminController : Controller{
-
+        // this is a merge attempt
 
         private ISpillerRepository repos;
 
