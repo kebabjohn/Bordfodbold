@@ -8,5 +8,9 @@ using System.Threading.Tasks;
 namespace Bordfodbold.Abstract {
   public interface ISpillerRepository {
     IEnumerable<Spiller> Spillere { get; }
+
+    void SaveSpiller(Spiller spiller);
+
+    Spiller DeleteSpiller(int spillerID);
   }
 }
