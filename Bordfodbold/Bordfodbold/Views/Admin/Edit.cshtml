@@ -1,0 +1,32 @@
+﻿@model Bordfodbold.Models.Spiller
+
+@{
+    ViewBag.Title = "Admin edit: " + Model.Spiller_Name;
+}
+
+
+<div class="panel">
+    <div class="panel-heading">
+        <h3>Edit @Model.Spiller_Name</h3>
+    </div>
+
+    @using (Html.BeginForm("Edit", "Admin")) {
+        <div class="panel-body">
+            @Html.HiddenFor(m => m.SpillerID)
+            @foreach (var property in ViewData.ModelMetadata.Properties) {
+                if (property.PropertyName != "SpillerID") {
+                    <div class="form-group">
+                        <label>@(property.DisplayName ?? property.PropertyName)</label>
+                        @Html.TextArea(property.PropertyName, null, new { @class = "form-control", rows = 1 })
+                        @Html.ValidationMessage(property.PropertyName)
+                    </div>
+                }
+            }
+        </div>
+
+        <div class="panel-footer">
+            <input type="submit" value="Gem" class="btn btn-primary" />
+            @Html.ActionLink("Cancel and return to the list", "Admin", null, new { @class = "btn btn-default" })
+        </div>
+    }
+</div>
