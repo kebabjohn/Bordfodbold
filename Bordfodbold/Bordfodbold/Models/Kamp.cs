@@ -8,13 +8,12 @@ namespace Bordfodbold.Models {
     public class Kamp {
         [Key]
         public int Kamp_ID { get; set; }
-        public int Spiller1_ID { get; set; }
-        public int Spiller2_ID { get; set; }
-        public int Spiller3_ID { get; set; }
-        public int Spiller4_ID { get; set; }
+        public string Spiller1 { get; set; }
+        public string Spiller2 { get; set; }
+        public string Spiller3 { get; set; }
+        public string Spiller4 { get; set; }
         public int rødmål { get; set; }
         public int blåmål { get; set; }
-        public DateTime Dato { get; set; }
-        public int Tid { get; set; }
+        public DateTime Kamp_Dato { get; set; }
     }
 }

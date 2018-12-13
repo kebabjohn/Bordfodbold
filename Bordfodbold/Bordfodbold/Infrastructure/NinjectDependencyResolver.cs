@@ -38,8 +38,8 @@ namespace Bordfodbold.Infrastructure {
             DateTime date = new DateTime();
             //mock forbindelse
             Mock<IKampRepository> mock = new Mock<IKampRepository>();
-            mock.Setup(me => me.kampe).Returns(new List<Kamp>
-               { new Kamp {Kamp_ID=0, Spiller1_ID=1, Spiller2_ID=2, Spiller3_ID=3, Spiller4_ID=4, Dato=date, Tid=5 }});
+            //mock.Setup(me => me.kampe).Returns(new List<Kamp>
+           //    { new Kamp {Kamp_ID=0, Spiller1_ID=1, Spiller2_ID=2, Spiller3_ID=3, Spiller4_ID=4, Dato=date, Tid=5 }});
             // authentication provider binding
             kernel.Bind<IAuhtProvider>().To<FormAuthProvider>();
 
