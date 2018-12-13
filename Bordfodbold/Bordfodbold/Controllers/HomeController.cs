@@ -12,77 +12,43 @@ namespace Bordfodbold.Controllers {
 
 
         private ISpillerRepository spilrepository;
+        private IKampRepository kamprepository;
 
-        public HomeController(ISpillerRepository spillerRepository)
+        public HomeController(ISpillerRepository spillerRepository, IKampRepository kampRepository)
         {
-            spilrepository = spillerRepository;
+            this.spilrepository = spillerRepository;
+            this.kamprepository = kampRepository;
         }
-
-
-        public ActionResult Index(Spiller spiller) {
-
-            List<Spiller> søgSpillerList = new List<Spiller>();
-
-            if (spiller.Spiller_Name != null && spiller.Spiller_Maal != 0 && spiller.Spiller_Kampe != 0)
-            {
-                foreach (Spiller s in spilrepository.Spillere)
-                {
-                    if (spiller.Spiller_Name == s.Spiller_Name && spiller.Spiller_Maal == s.Spiller_Maal && spiller.Spiller_Kampe == s.Spiller_Kampe)
-                    {
-                        søgSpillerList.Add(s);
-                    }
-                }
-            }
-            else if (spiller.Spiller_Name != null)
-            {
-                foreach (Spiller s in spilrepository.Spillere)
-                {
-                    if (spiller.Spiller_Name == s.Spiller_Name)
-                    {
-                        søgSpillerList.Add(s);
-                    }
-                }
-            }
-            else if (spiller.Spiller_Maal != 0)
-            {
-                foreach (Spiller s in spilrepository.Spillere)
-                {
-                    if (spiller.Spiller_Maal == s.Spiller_Maal)
-                    {
-                        søgSpillerList.Add(s);
-                    }
-                }
-            }
-            else if (spiller.Spiller_Kampe != 0)
-            {
-                foreach (Spiller s in spilrepository.Spillere)
-                {
-                    if (spiller.Spiller_Kampe == s.Spiller_Kampe)
-                    {
-                        søgSpillerList.Add(s);
-                    }
-                }
-            }
-
-            return View(spilrepository.Spillere);
+      
+     
+        public ActionResult Index() {
+      KampViewModel viewmodel = new KampViewModel();
+      viewmodel.spillere = spilrepository.Spillere;
+      
+      return View(viewmodel);
     }
 
-    //public ActionResult Database() {
-    //        BFDBEntities entity = new BFDBEntities();
-    //        var getspillere = entity.Spillers.ToList();
-    //        SelectList list = new SelectList(getspillere,"Id", "Name");
-    //        ViewBag.spillerelistname = list;
 
+   [HttpPost]    
+    public ActionResult GemKamp(KampViewModel viewmodel) {
+      
+      Kamp kamp = new Kamp();
+      
+      kamp.Spiller1 = viewmodel.Spiller1;
+      kamp.Spiller2 = viewmodel.Spiller2;
+      kamp.Spiller3 = viewmodel.Spiller3;
+      kamp.Spiller4 = viewmodel.Spiller4;
 
-    //  return View("Index");
-    //}
-
-    [HttpPost]    //der sendes info fra system til serverdatabase 
-    public ActionResult GemKamp(Kamp kamp) {
-            
-
-
-            return View("Index",match);
+      kamp.rødmål = viewmodel.rødmål;
+      kamp.blåmål = viewmodel.blåmål;
+      kamp.Kamp_Dato = DateTime.Now;
+      
+      return View(kamp);
         }
+    [HttpPost]
+    public ActionResult AfslutKamp(Kamp kamp) {
+      kamprepository.gemKamp(kamp);
+      return RedirectToAction("Index", "Home");
+    }
   }
 }

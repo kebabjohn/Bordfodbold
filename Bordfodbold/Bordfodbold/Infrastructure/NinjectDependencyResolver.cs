@@ -33,7 +33,8 @@ namespace Bordfodbold.Infrastructure {
 
       //      kernel.Bind<ISpillerRepository>().ToConstant(mock.Object);
             kernel.Bind<ISpillerRepository>().To<EFSpillerRepository>();
-            //kernel.Bind<IKampRepository>().To<EFKamprepository>();
+
+            kernel.Bind<IKampRepository>().To<EFKamprepository>();
             //rigtig forbindelse
             DateTime date = new DateTime();
             //mock forbindelse

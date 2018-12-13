@@ -9,5 +9,8 @@ namespace Bordfodbold.Abstract {
   public  interface IKampRepository {
         IEnumerable<Kamp> kampe { get; }
 
+    void SaveKamp(Kamp kamp);
+    void gemKamp(Kamp kamp);
+
     }
 }

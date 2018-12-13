@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Bordfodbold.Models.Spiller>
+﻿@model Bordfodbold.Models.KampViewModel
 
 @{
     ViewBag.Title = "Home Page";
@@ -8,80 +8,71 @@
 }
 
 
+
 <div class="jumbotron">
     <h4>Kamp</h4>
 
 </div>
+<body onload="onLoad()">
+    @using (Html.BeginForm("GemKamp", "Home")) {
+        <div class="row">
+            <div class="col-md-4">
 
-@using (Html.BeginForm("GemKamp", "Home")) {
-    <div class="row">
-        <div class="col-md-4">
+                @Html.TextBoxFor(m => m.rødmål, new { @id = "hold1maal" })
 
-            <h3>Team Rød <input type="number" name="rødmål" style="width:55px;" /></h3>
+                @Html.DropDownListFor(m => m.Spiller1, new SelectList(Model.spillere, "Spiller_Name"), "Spiller1")
+                <br />
+                @Html.DropDownListFor(m => m.Spiller2, new SelectList(Model.spillere, "Spiller_Name"), "Spiller2")
 
-            @Html.DropDownList("Spiller1", new SelectList(
-       Model,
-       "Spiller_Name",
-       "Spiller_Name"))
-            <br />
-            @Html.DropDownList("Spiller2", new SelectList(
-      Model,
-      "Spiller_Name",
-      "Spiller_Name"))
 
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
 
-            <input type="submit" value="Start" name="start" />
+                <input type="submit" value="Start" name="start" />
 
-        </div>
-
-        <div class="col-md-4">
-            <br />
-            <br />
-            <div style="margin-left: auto; margin-right: auto; text-align: center;">
-                <h1> VS </h1>
             </div>
 
+            <div class="col-md-4">
+                <br />
+                <br />
+                <div style="margin-left: auto; margin-right: auto; text-align: center;">
+                    <h1> VS </h1>
+                </div>
+
+            </div>
+
+            <div class="col-md-4" style="text-align: right;">
+                @Html.TextBoxFor(m => m.blåmål, new { @id = "hold2maal" })
+
+                @Html.DropDownListFor(m => m.Spiller3, new SelectList(Model.spillere, "Spiller_Name"), "Spiller3")
+                <br />
+                @Html.DropDownListFor(m => m.Spiller4, new SelectList(Model.spillere, "Spiller_Name"), "Spiller4")
+
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+
+                <!--funktion til GemKamp() skrives her-->
+
+
+
+
+
+
+                <input type="submit" value="Gem" name="gem" />
+
+            </div>
         </div>
-
-        <div class="col-md-4" style="text-align: right;">
-            <h3><input type="number" name="blåmål" style="width:35px;" /> Team Blå </h3>
-
-            @Html.DropDownList("Spiller3", new SelectList(
-           Model,
-           "Spiller_Name",
-           "Spiller_Name"))
-            <br />
-            @Html.DropDownList("Spiller4", new SelectList(
-             Model,
-             "Spiller_Name",
-             "Spiller_Name"))
-
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-
-            <!--funktion til GemKamp() skrives her-->
-
-
-
-
-
-
-            <input type="submit" value="Gem" name="gem" />
-            
-        </div>
-    </div>
-}
+    }
+</body>

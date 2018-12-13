@@ -26,6 +26,8 @@ namespace Bordfodbold.Models
     [Range(0 - 100, int.MaxValue, ErrorMessage = "Please enter number of games played")]
     public int Spiller_Kampe { get; set; }
 
-
+    public override string ToString() {
+      return Spiller_Name;
     }
+  }
 }

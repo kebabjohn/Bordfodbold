@@ -31,6 +31,10 @@ namespace Bordfodbold.Concrete {
             context.SaveChanges();
 
         }
+    public void gemKamp(Kamp kamp) {
+      context.Kampe.Add(kamp);
+      context.SaveChanges();
+    }
 
     }
 }
