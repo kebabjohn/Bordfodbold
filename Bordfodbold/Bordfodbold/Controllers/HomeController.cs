@@ -53,12 +53,16 @@ namespace Bordfodbold.Controllers {
             Spiller p4 = spilrepository.Spillere.FirstOrDefault(s => s.Spiller_Name == kamp.Spiller4);
 
             p1.Spiller_Kampe++;
+            p1.Spiller_Maal += kamp.rødmål;
             spilrepository.SaveSpiller(p1);
             p2.Spiller_Kampe++;
+            p2.Spiller_Maal += kamp.rødmål;
             spilrepository.SaveSpiller(p2);
             p3.Spiller_Kampe++;
+            p3.Spiller_Maal += kamp.blåmål;
             spilrepository.SaveSpiller(p3);
             p4.Spiller_Kampe++;
+            p4.Spiller_Maal += kamp.blåmål;
             spilrepository.SaveSpiller(p4);
 
             kamprepository.gemKamp(kamp);
