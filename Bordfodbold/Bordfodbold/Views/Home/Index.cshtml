@@ -3,24 +3,57 @@
 @{
     ViewBag.Title = "Home Page";
 
-
-
 }
 
+<head>
+    <script type="text/javascript">
+        function startTimer(duration, display) {
+            var timer = duration, minutes, seconds;
+            setInterval(function () {
+                minutes = parseInt(timer / 60, 10)
+                seconds = parseInt(timer % 60, 10);
 
+                minutes = minutes < 10 ? "0" + minutes : minutes;
+                seconds = seconds < 10 ? "0" + seconds : seconds;
+
+                display.textContent = minutes + ":" + seconds;
+
+                if (--timer < 0) {
+                    timer = 0;
+                }
+            }, 1000);
+        }
+
+        document.querySelector('button').addEventListener('click', function () {
+            timer.start();
+        });
+
+        window.onload = function() {
+            var fiveMinutes = 60 * 5,
+                display = document.querySelector('#time');
+            startTimer(fiveMinutes, display);
+
+            
+        }
+    </script>
+</head>
+  
 
 <div class="jumbotron">
-    <h4>Kamp</h4>
+    <h1>Kamp</h1>
 
 </div>
 <body onload="onLoad()">
-    @using (Html.BeginForm("GemKamp", "Home")) {
+    @using (Html.BeginForm("GemKamp", "Home"))
+    {
         <div class="row">
             <div class="col-md-4">
-
-                @Html.TextBoxFor(m => m.rødmål, new { @id = "hold1maal" })
-
+                <font color="red"><h2>Rødt Team</h2></font>
+                @Html.TextBoxFor(m => m.rødmål, new { @id = "hold1maal", style = "width: 30px;" })
+                <br />
+                <br />
                 @Html.DropDownListFor(m => m.Spiller1, new SelectList(Model.spillere, "Spiller_Name"), "Spiller1")
+                <br />
                 <br />
                 @Html.DropDownListFor(m => m.Spiller2, new SelectList(Model.spillere, "Spiller_Name"), "Spiller2")
 
@@ -30,11 +63,9 @@
                 <br />
                 <br />
                 <br />
-                <br />
-                <br />
-                <br />
 
-                <input type="submit" value="Start" name="start" />
+
+
 
             </div>
 
@@ -42,15 +73,23 @@
                 <br />
                 <br />
                 <div style="margin-left: auto; margin-right: auto; text-align: center;">
+                    <div>Kampen slutter om <span id="time">05:00</span> minutter!</div>
+                    <br />
                     <h1> VS </h1>
+                    <input type="button" value="Start"  name="start" onclick="" style="height:50px; width:80px" />
+                    <p>    </p>
+                    <input type="submit" value="Gem" name="gem" style="height:50px; width:80px" />
                 </div>
 
             </div>
 
             <div class="col-md-4" style="text-align: right;">
-                @Html.TextBoxFor(m => m.blåmål, new { @id = "hold2maal" })
-
+                <font color="blue"><h2>Blåt Team</h2></font>
+                @Html.TextBoxFor(m => m.blåmål, new { @id = "hold2maal", style = "width: 30px;" })
+                <br />
+                <br />
                 @Html.DropDownListFor(m => m.Spiller3, new SelectList(Model.spillere, "Spiller_Name"), "Spiller3")
+                <br />
                 <br />
                 @Html.DropDownListFor(m => m.Spiller4, new SelectList(Model.spillere, "Spiller_Name"), "Spiller4")
 
@@ -59,9 +98,7 @@
                 <br />
                 <br />
                 <br />
-                <br />
-                <br />
-                <br />
+
 
                 <!--funktion til GemKamp() skrives her-->
 
@@ -70,7 +107,7 @@
 
 
 
-                <input type="submit" value="Gem" name="gem" />
+
 
             </div>
         </div>

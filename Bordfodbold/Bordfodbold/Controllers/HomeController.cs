@@ -51,4 +51,5 @@ namespace Bordfodbold.Controllers {
       return RedirectToAction("Index", "Home");
     }
   }
+
 }
