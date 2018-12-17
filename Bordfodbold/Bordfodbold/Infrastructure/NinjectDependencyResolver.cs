@@ -23,7 +23,7 @@ namespace Bordfodbold.Infrastructure {
       return kernel.GetAll(serviceType);
     }
     private void AddBindings() {
-      //      Mock<ISpillerRepository> mock = new Mock<ISpillerRepository>();
+         //  Mock<ISpillerRepository> mock = new Mock<ISpillerRepository>();
 
       //      mock.Setup(m => m.Spillere).Returns(new List<Spiller>
       //{
@@ -37,9 +37,9 @@ namespace Bordfodbold.Infrastructure {
             kernel.Bind<IKampRepository>().To<EFKamprepository>();
             //rigtig forbindelse
             //mock forbindelse
-            Mock<IKampRepository> mock = new Mock<IKampRepository>();
-            mock.Setup(me => me.kampe).Returns(new List<Kamp>
-               { new Kamp {Kamp_ID=0, Spiller1="p1", Spiller2="p2", Spiller3="p3", Spiller4="p4", blåmål=4, rødmål = 8}});
+      //      Mock<IKampRepository> mock = new Mock<IKampRepository>();
+        //    mock.Setup(me => me.kampe).Returns(new List<Kamp>
+          //     { new Kamp {Kamp_ID=0, Spiller1="p1", Spiller2="p2", Spiller3="p3", Spiller4="p4", blåmål=4, rødmål = 8}});
             // authentication provider binding
             kernel.Bind<IAuhtProvider>().To<FormAuthProvider>();
 
