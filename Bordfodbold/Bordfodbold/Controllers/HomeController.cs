@@ -47,7 +47,21 @@ namespace Bordfodbold.Controllers {
         }
     [HttpPost]
     public ActionResult AfslutKamp(Kamp kamp) {
-      kamprepository.gemKamp(kamp);
+            Spiller p1 = spilrepository.Spillere.FirstOrDefault(s => s.Spiller_Name == kamp.Spiller1);
+            Spiller p2 = spilrepository.Spillere.FirstOrDefault(s => s.Spiller_Name == kamp.Spiller2);
+            Spiller p3 = spilrepository.Spillere.FirstOrDefault(s => s.Spiller_Name == kamp.Spiller3);
+            Spiller p4 = spilrepository.Spillere.FirstOrDefault(s => s.Spiller_Name == kamp.Spiller4);
+
+            p1.Spiller_Kampe++;
+            spilrepository.SaveSpiller(p1);
+            p2.Spiller_Kampe++;
+            spilrepository.SaveSpiller(p2);
+            p3.Spiller_Kampe++;
+            spilrepository.SaveSpiller(p3);
+            p4.Spiller_Kampe++;
+            spilrepository.SaveSpiller(p4);
+
+            kamprepository.gemKamp(kamp);
       return RedirectToAction("Index", "Home");
     }
   }
