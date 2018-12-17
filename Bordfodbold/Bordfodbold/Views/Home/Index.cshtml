@@ -10,19 +10,19 @@
 
 
 <div class="jumbotron">
-    <h4>Kamp</h4>
+    <h1>Kamp</h1>
 
 </div>
 <body onload="onLoad()">
     @using (Html.BeginForm("GemKamp", "Home")) {
         <div class="row">
             <div class="col-md-4">
+                <strong><h2 style="color:red;">Rødt team</h2></strong>
+                <h3>Mål: @Html.TextBoxFor(m => m.rødmål, new { @id = "hold1maal" })</h3>
 
-                @Html.TextBoxFor(m => m.rødmål, new { @id = "hold1maal" })
-
-                @Html.DropDownListFor(m => m.Spiller1, new SelectList(Model.spillere, "Spiller_Name"), "Spiller1")
-                <br />
-                @Html.DropDownListFor(m => m.Spiller2, new SelectList(Model.spillere, "Spiller_Name"), "Spiller2")
+                <h3>@Html.DropDownListFor(m => m.Spiller1, new SelectList(Model.spillere, "Spiller_Name"), "Spiller1")</h3>
+                
+                <h3>@Html.DropDownListFor(m => m.Spiller2, new SelectList(Model.spillere, "Spiller_Name"), "Spiller2")</h3>
 
 
                 <br />
@@ -48,11 +48,12 @@
             </div>
 
             <div class="col-md-4" style="text-align: right;">
-                @Html.TextBoxFor(m => m.blåmål, new { @id = "hold2maal" })
+                <strong><h2 style="color:blue;">Blåt team</h2></strong>
+                <h3>Mål: @Html.TextBoxFor(m => m.blåmål, new { @id = "hold2maal" })</h3>
 
-                @Html.DropDownListFor(m => m.Spiller3, new SelectList(Model.spillere, "Spiller_Name"), "Spiller3")
-                <br />
-                @Html.DropDownListFor(m => m.Spiller4, new SelectList(Model.spillere, "Spiller_Name"), "Spiller4")
+                <h3>@Html.DropDownListFor(m => m.Spiller3, new SelectList(Model.spillere, "Spiller_Name"), "Spiller3")</h3>
+                
+                <h3>@Html.DropDownListFor(m => m.Spiller4, new SelectList(Model.spillere, "Spiller_Name"), "Spiller4")</h3>
 
                 <br />
                 <br />
