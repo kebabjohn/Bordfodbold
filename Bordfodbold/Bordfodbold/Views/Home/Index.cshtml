@@ -5,47 +5,50 @@
 
 }
 
-<head>
-    <script type="text/javascript">
-        function startTimer(duration, display) {
-            var timer = duration, minutes, seconds;
-            setInterval(function () {
-                minutes = parseInt(timer / 60, 10)
-                seconds = parseInt(timer % 60, 10);
+<script type="text/javascript">
+    function startTimer(duration, display) {
+        var timer = duration, minutes, seconds;
+        setInterval(function () {
+            minutes = parseInt(timer / 60, 10)
+            seconds = parseInt(timer % 60, 10);
 
-                minutes = minutes < 10 ? "0" + minutes : minutes;
-                seconds = seconds < 10 ? "0" + seconds : seconds;
+            minutes = minutes < 10 ? "0" + minutes : minutes;
+            seconds = seconds < 10 ? "0" + seconds : seconds;
 
-                display.textContent = minutes + ":" + seconds;
+            display.textContent = minutes + ":" + seconds;
 
-                if (--timer < 0) {
-                    timer = 0;
-                }
-            }, 1000);
-        }
+            if (--timer < 0) {
+                timer = 0;
+            }
+        }, 1000);
+    }
 
-        document.querySelector('button').addEventListener('click', function () {
-            timer.start();
-        });
+    document.querySelector('button').addEventListener('click', function () {
+        timer.start();
+    });
 
-        window.onload = function() {
-            var fiveMinutes = 60 * 5,
-                display = document.querySelector('#time');
-            startTimer(fiveMinutes, display);
+    function Counter() {
+        var fiveMinutes = 60*5,
+            display = document.querySelector('#time');
+        startTimer(fiveMinutes, display);
 
-            
-        }
-    </script>
-</head>
+
+    }
+</script>
+    
+
+    
+
   
 
 <div class="jumbotron">
     <h1>Kamp</h1>
 
 </div>
-<body onload="onLoad()">
-    @using (Html.BeginForm("GemKamp", "Home"))
-    {
+
+<body>
+    
+    @using (Html.BeginForm("GemKamp", "Home")) {
         <div class="row">
             <div class="col-md-4">
                 <font color="red"><h2>Rødt Team</h2></font>
@@ -76,8 +79,7 @@
                     <div>Kampen slutter om <span id="time">05:00</span> minutter!</div>
                     <br />
                     <h1> VS </h1>
-                    <input type="button" value="Start"  name="start" onclick="" style="height:50px; width:80px" />
-                    <p>    </p>
+                    <input type="button" value="Start" name="start" onclick="Counter()" style="height:50px; width:80px" />
                     <input type="submit" value="Gem" name="gem" style="height:50px; width:80px" />
                 </div>
 
@@ -98,16 +100,6 @@
                 <br />
                 <br />
                 <br />
-
-
-                <!--funktion til GemKamp() skrives her-->
-
-
-
-
-
-
-
 
             </div>
         </div>

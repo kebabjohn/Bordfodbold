@@ -5,7 +5,39 @@
 }
 
 <h2>GameScreen</h2>
+<script type="text/javascript">
+        function startTimer(duration, display) {
+            var timer = duration, minutes, seconds;
+            setInterval(function () {
+                minutes = parseInt(timer / 60, 10)
+                seconds = parseInt(timer % 60, 10);
 
+                minutes = minutes < 10 ? "0" + minutes : minutes;
+                seconds = seconds < 10 ? "0" + seconds : seconds;
+
+                display.textContent = minutes + ":" + seconds;
+
+                if (--timer < 0) {
+                    timer = 0;
+                }
+            }, 1000);
+        }
+
+        document.querySelector('button').addEventListener('click', function () {
+            timer.start();
+        });
+
+        window.onload = function() {
+            var fiveMinutes = 60 * 5,
+                display = document.querySelector('#time');
+            startTimer(fiveMinutes, display);
+
+
+        }
+</script>
+<body>
+    <div>Registration closes in <span id="time">05:00</span> minutes!</div>
+</body>
 @using (Html.BeginForm()) {
 
     <p>Name: @Html.TextBox("Spiller_Name")</p>
@@ -14,21 +46,23 @@
     <input type="submit" value="Search" style="border-color:red" />
 }
 
-<div class="panel-body">
-    <table>
-        <tr>
-            <th style="border: 2px solid; border-color: darkblue; text-align:center; padding:5px 20px 5px 20px"><strong>Name</strong></th>
-            <th style="border: 2px solid; border-color: darkblue; text-align:center; padding:5px 20px 5px 20px"><strong>Mål</strong></th>
-            <th style="border: 2px solid; border-color: darkblue; text-align:center; padding:5px 20px 5px 20px"><strong>Kampe</strong></th>
-        </tr>
+    <div class="panel-body">
 
-        @foreach (Spiller s in Model) {
+        <table>
             <tr>
-                <td> @s.Spiller_Name</td>
-                <td> @s.Spiller_Maal</td>
-                <td> @s.Spiller_Kampe</td>
+                <th style="border: 2px solid; border-color: darkblue; text-align:center; padding:5px 20px 5px 20px"><strong>Name</strong></th>
+                <th style="border: 2px solid; border-color: darkblue; text-align:center; padding:5px 20px 5px 20px"><strong>Mål</strong></th>
+                <th style="border: 2px solid; border-color: darkblue; text-align:center; padding:5px 20px 5px 20px"><strong>Kampe</strong></th>
             </tr>
 
-        }
-    </table>
-</div>
+            @foreach (Spiller s in Model) {
+                <tr>
+                    <td> @s.Spiller_Name</td>
+                    <td> @s.Spiller_Maal</td>
+                    <td> @s.Spiller_Kampe</td>
+                </tr>
+
+            }
+        </table>
+        
+    </div>
